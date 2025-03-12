@@ -95,7 +95,7 @@ insert into type_sub(id_sub,nm_sub)
 values (1, 'Отдел'),
 (2, 'Группа'),
 (3, 'Департамент');
-
+```
 ```
 create table strpod(	
 	id_str int primary key,
