@@ -23,7 +23,7 @@
 - идентификатор структурного подразделения, внешний ключ, integer).
 
 ### Ответ:
-
+```
 create table fio(	
 	id int primary key,
 	f_name varchar(50) not null,
@@ -61,13 +61,9 @@ values (1,'Суханова','Арина','Руслановна'),
 (27,'Трофимов','Вячеслав','Романович'),
 (28,'Пантелеева','Есения','Серафимовна'),
 (29,'Зуев','Георгий','Ильич');
+```
 
-
-select * from fio;
-
-
-
-
+```
 create table position(	
 	id_pos int primary key,
 	nm_pos varchar(50) not null unique);
@@ -88,9 +84,9 @@ values (1,'ведущий QA инженер'),
 (13, 'старший архектор'),
 (14, 'руководель проектов'),
 (15, 'руководель направления разработки');
+```
 
-
-
+```
 create table type_sub(	
 	id_sub int primary key,
 	nm_sub varchar(50) not null unique);
@@ -100,7 +96,7 @@ values (1, 'Отдел'),
 (2, 'Группа'),
 (3, 'Департамент');
 
-
+```
 create table strpod(	
 	id_str int primary key,
 	nm_str varchar(100) not null unique);
@@ -122,9 +118,9 @@ values (1, 'Центр компетенций QA Москва'),
 (14, 'Центр разработки Medio'),
 (15, 'Группа инфраструктуры'),
 (16, 'Департамент Rating and Charging');
+```
 
-
-
+```
 create table address(	
 	id_address int primary key,
 	nm_address varchar(255) not null unique);
@@ -133,10 +129,10 @@ insert into address(id_address,nm_address)
 values (1, 'Приморский край, г. Владивосток, ул Нижнепортовая, д. 1'),
 (2, 'Краснодарский край, г. Краснодар, ул Путевая, д. 1'),
 (3, 'Ростовская обл, г. Ростов-на-Дону, ул 2-я Краснодарская, д. 135/2');
+```
 
 
-
-
+```
 create table prodj(	
 	id_prodj int primary key,
 	nm_prodj varchar(100) not null unique);
@@ -170,8 +166,8 @@ values (1, '{Итэлма Инженерный корпус}'),
 (26, '{17110_2_TMK}'),
 (27, '{Открытие Спартаковская}'),
 (28, '{ВТБ Башня PM}'); 
-
-
+```
+```
 create table stat(	
 	stat_fio int not null references fio(id),
 	stat_zp integer,
@@ -181,5 +177,5 @@ create table stat(
 	stat_data date,
 	stat_prodj int references prodj(id_prodj)
 	);
-
+```
 Как я понимаю должна быть привязка оклада к должности, и исходя из места работы и проэкта должен формироваться оклад. Так же таблица с датами, Но у меня даты неправильно в excel неправильно отображаються. 
