@@ -1,21 +1,8 @@
-create table proff(	
-	id int primary key,
-	nam varchar(255) not null unique
-	);
-
-insert into proff(id,nam)
-values (1,'Kirill'), (2,'Den'),(3,'Ivan');
-
-select * from proff;
-
-create table 
-
-
 create table fio(	
 	id int primary key,
-	f_name varchar(255) not null,
-	last_name varchar(255) not null,
-	patr varchar(255) not null
+	f_name varchar(50) not null,
+	last_name varchar(50) not null,
+	patr varchar(50) not null
 	);
 
 insert into fio(id,f_name,last_name,patr)
@@ -57,7 +44,7 @@ select * from fio;
 
 create table position(	
 	id_pos int primary key,
-	nm_pos varchar(255) not null unique);
+	nm_pos varchar(50) not null unique);
 
 insert into position(id_pos,nm_pos)
 values (1,'ведущий QA инженер'),
@@ -80,7 +67,7 @@ values (1,'ведущий QA инженер'),
 
 create table type_sub(	
 	id_sub int primary key,
-	nm_sub varchar(255) not null unique);
+	nm_sub varchar(50) not null unique);
 
 insert into type_sub(id_sub,nm_sub)
 values (1, 'Отдел'),
@@ -90,7 +77,7 @@ values (1, 'Отдел'),
 
 create table strpod(	
 	id_str int primary key,
-	nm_str varchar(255) not null unique);
+	nm_str varchar(100) not null unique);
 
 insert into strpod(id_str,nm_str)
 values (1, 'Центр компетенций QA Москва'),
@@ -126,7 +113,7 @@ values (1, 'Приморский край, г. Владивосток, ул Ни
 
 create table prodj(	
 	id_prodj int primary key,
-	nm_prodj varchar(255) not null unique);
+	nm_prodj varchar(100) not null unique);
 
 insert into prodj(id_prodj,nm_prodj)
 values (1, '{Итэлма Инженерный корпус}'),
@@ -156,24 +143,18 @@ values (1, '{Итэлма Инженерный корпус}'),
 (25, '{Общественное пространство Норильск}'),
 (26, '{17110_2_TMK}'),
 (27, '{Открытие Спартаковская}'),
-(28, '{ВТБ Башня PM}');
+(28, '{ВТБ Башня PM}'); 
 
 
 create table stat(	
-	stat_fio ,
-	nm_prodj varchar(255) not null unique);
-
-
-
-
-
-
-
-
-
-drop table prof
-
-
+	stat_fio int not null references fio(id),
+	stat_zp integer,
+	stat_pos int references position(id_pos),
+	stat_sub int references type_sub(id_sub),
+	stat_pod int references strpod(id_str),
+	stat_data date,
+	stat_prodj int references prodj(id_prodj)
+	);
 
 
 
